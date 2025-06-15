@@ -70,8 +70,8 @@ Our system employs two specialized agents working together:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/multi-agent-instagram-generator.git
-   cd multi-agent-instagram-generator
+   git clone https://github.com/Isomkevin/instagram-wine-food-ai-content-generator.git
+   cd instagram-wine-food-ai-content-generator
    ```
 
 2. **Install dependencies**
@@ -325,133 +325,81 @@ sparkling water bottles alongside artisanal cheeses...
 
 ## 🧪 Testing
 
+### Test Structure
+
+The project includes a comprehensive test suite organized into the following categories:
+
+- **Unit Tests** (`tests/test_agents.py`): Testing individual agent functionality
+- **Integration Tests** (`tests/test_integration.py`): Testing multi-agent coordination
+- **Prompt Tests** (`tests/test_prompt.py`): Testing natural language processing
+- **Output Tests** (`tests/test_output.py`): Testing file generation and formatting
+
 ### Running Tests
 
-```bash
-# Install test dependencies
-pip install pytest pytest-cov
+1. **Install test dependencies**
 
-# Run tests
-pytest tests/ -v --cov=src/
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
 
-# Run specific test category
-pytest tests/test_agents.py -v
-```
+2. **Run all tests with coverage**
 
-### Test Categories
+   ```bash
+   pytest tests/ -v --cov=app
+   ```
 
-- **Unit Tests**: Individual agent functionality
-- **Integration Tests**: Multi-agent coordination
-- **Prompt Tests**: Natural language processing
-- **Output Tests**: File generation and formatting
+3. **Run specific test categories**
 
----
+   ```bash
+   # Run agent tests
+   pytest tests/test_agents.py -v
 
-## 🔍 Troubleshooting
+   # Run integration tests
+   pytest tests/test_integration.py -v
 
-### Common Issues
+   # Run prompt processing tests
+   pytest tests/test_prompt.py -v
 
-#### Authentication Error
+   # Run output tests
+   pytest tests/test_output.py -v
+   ```
 
-```
-❌ Error: GEMINI_API_KEY environment variable is required
-```
+### Test Coverage
 
-**Solution:** Set your Gemini API key in environment variables or `.env` file
+The test suite includes:
 
-#### Module Import Error
+- **Agent Tests**
+  - Agent creation and configuration
+  - Response generation
+  - Error handling
 
-```
-❌ ImportError: No module named 'agno'
-```
+- **Integration Tests**
+  - Team coordination
+  - Content generation workflow
+  - Error handling
+  - Content history management
 
-**Solution:** Install dependencies: `pip install agno duckduckgo-search google-genai`
+- **Prompt Tests**
+  - Prompt interface initialization
+  - Natural language parsing
+  - Topic extraction
+  - Style and requirements extraction
+  - Special character handling
 
-#### Agent Timeout
-
-```
-❌ Agent request timeout
-```
-
-**Solution:** Check internet connection and API key validity
-
-#### Empty Output
-
-```
-❌ No content generated
-```
-
-**Solution:** Ensure topic is related to wine/food domain
-
-### Debug Mode
-
-Enable debug logging:
-
-```bash
-export DEBUG_MODE=true
-python instagram_content_generator.py
-```
-
----
-
-## 🚀 Advanced Usage
-
-### Custom Agent Configuration
-
-```python
-# Create custom writer with specific focus
-custom_writer = Agent(
-    name="Sommelier Expert",
-    role="Master sommelier specializing in French wines",
-    description="Create expert-level wine content...",
-    # ... additional configuration
-)
-
-# Initialize with custom agents
-generator = InstagramContentGenerator(
-    api_key="your_key",
-    custom_agents={'writer': custom_writer}
-)
-```
-
-### Batch Content Generation
-
-```python
-topics = [
-    "Italian Barolo wine characteristics",
-    "Cheese board assembly for beginners", 
-    "Summer wine storage tips"
-]
-
-for topic in topics:
-    result = generator.generate_content(topic)
-    print(f"Generated content for: {topic}")
-```
-
-### Integration with Image Generation
-
-```python
-# Use the generated image prompt with DALL-E, Midjourney, etc.
-result = generator.generate_content("Wine tasting techniques")
-image_prompt = result['image_prompt']
-
-# Send to your preferred image generation service
-# generated_image = dalle.create(prompt=image_prompt)
-```
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to get started:
+- **Output Tests**
+  - Directory creation
+  - File generation
+  - Content history management
+  - File encoding
+  - File permissions
 
 ### Development Setup
 
 1. **Fork and clone**
 
    ```bash
-   git clone https://github.com/yourusername/multi-agent-instagram-generator.git
-   cd multi-agent-instagram-generator
+   git clone https://github.com/Isomkevin/instagram-wine-food-ai-content-generator.git
+   cd instagram-wine-food-ai-content-generator
    ```
 
 2. **Create development environment**
@@ -459,6 +407,7 @@ We welcome contributions! Here's how to get started:
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
    pip install -r requirements-dev.txt
    ```
 
@@ -468,6 +417,19 @@ We welcome contributions! Here's how to get started:
    pre-commit install
    ```
 
+4. **Run code quality checks**
+
+   ```bash
+   # Format code
+   black src/ tests/
+
+   # Check types
+   mypy src/
+
+   # Run linting
+   flake8 src/ tests/
+   ```
+
 ### Contribution Guidelines
 
 - 🐛 **Bug Reports**: Use the issue template
@@ -475,19 +437,6 @@ We welcome contributions! Here's how to get started:
 - 🔧 **Pull Requests**: Follow the PR template
 - 📝 **Documentation**: Update README and docstrings
 - ✅ **Tests**: Add tests for new functionality
-
-### Code Style
-
-```bash
-# Format code
-black src/ tests/
-
-# Check types
-mypy src/
-
-# Run linting
-flake8 src/ tests/
-```
 
 ---
 
@@ -508,7 +457,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/multi-agent-instagram-generator&type=Date)](https://star-history.com/#yourusername/multi-agent-instagram-generator&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Isomkevin/instagram-wine-food-ai-content-generator&type=Date)](https://star-history.com/#Isomkevin/instagram-wine-food-ai-content-generator&Date)
 
 ---
 
@@ -517,7 +466,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📧 **Email**: <support@yourdomain.com>
 - 💬 **Discord**: [Join our community](https://discord.gg/your-invite)
 - 📖 **Documentation**: [Full docs](https://your-docs-site.com)
-- 🐛 **Issues**: [Report bugs](https://github.com/yourusername/multi-agent-instagram-generator/issues)
+- 🐛 **Issues**: [Report bugs](https://github.com/Isomkevin/instagram-wine-food-ai-content-generator/issues)
 
 ---
 
@@ -525,6 +474,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by wine and food enthusiasts, for content creators**
 
-[⭐ Star this project](https://github.com/yourusername/multi-agent-instagram-generator) • [🍴 Fork it](https://github.com/yourusername/multi-agent-instagram-generator/fork) • [📢 Share it](https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20multi-agent%20Instagram%20content%20generator!)
+[⭐ Star this project](https://github.com/Isomkevin/instagram-wine-food-ai-content-generator) • [🍴 Fork it](https://github.com/Isomkevin/instagram-wine-food-ai-content-generator/fork) • [📢 Share it][def]
 
 </div>
+
+[def]: https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20multi-agent%20Instagram%20content%20generator!
